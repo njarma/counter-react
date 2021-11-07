@@ -8,7 +8,7 @@ import ButtonAsyncWithValue from "./components/button-async-with-value/button-as
 function App() {
   const dispatch = useDispatch();
   const value = useSelector(store => store.counter.value);
-  debugger;
+  const loading = useSelector(store => store.counter.loading);
 
   return (
     <div className="App">
@@ -18,7 +18,7 @@ function App() {
         <Stack spacing={2} direction="row">
           <ButtonComponent text="Increase" type="success" onClickFunc={() => dispatch(increaseValue())}/>
           <ButtonComponent text="Decrease" type="error" onClickFunc={() => dispatch(decreaseValue())}/>
-          <ButtonAsyncWithValue text="Increase async with value" onClickFunc={(amount) => dispatch(incrementAsync(amount))}/>
+          <ButtonAsyncWithValue text="Increase async with value" type="secondary" loading={loading} onClickFunc={(amount) => dispatch(incrementAsync(amount))}/>
         </Stack>
       </Stack>
     </div>

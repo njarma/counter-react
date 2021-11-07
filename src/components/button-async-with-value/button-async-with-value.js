@@ -7,7 +7,8 @@ import {useState} from "react";
 function ButtonAsyncWithValue(
   { text = 'Click me',
     onClickFunc = () => null,
-    type
+    type,
+    loading = false
   }) {
 
   const [value, setValue] = useState(0);
@@ -22,7 +23,7 @@ function ButtonAsyncWithValue(
 
   return (
     <Stack spacing={2} direction="row">
-      <ButtonComponent text={text} onClickFunc={handleClick} type={type}/>
+      <ButtonComponent text={text} onClickFunc={handleClick} type={type} loading={loading}/>
       <TextField
         variant="filled"
         sx={{
